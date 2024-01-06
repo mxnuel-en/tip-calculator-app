@@ -183,7 +183,7 @@ body {
 }
 
 .tip_category input:hover {
-  background-color: var(--strong-cyan);
+  background-color: var(--light-grayish-cyan);
   color: var(--very-dark-cyan);
 }
 
@@ -221,6 +221,10 @@ body {
   background-color: var(--strong-cyan);
   color: var(--very-dark-cyan);
   cursor: pointer;
+}
+
+.results_section button:hover {
+  background-color: var(--light-grayish-cyan);
 }
 
 .results_section button:disabled {
