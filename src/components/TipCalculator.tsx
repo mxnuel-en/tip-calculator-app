@@ -29,7 +29,7 @@ function TipCalculator({
   };
 
   return (
-    <div className="tip_section">
+    <section className="tip_section">
       <InputComponent
         label="Bill"
         value={tipValues.billAmount === 0 ? "" : tipValues.billAmount}
@@ -59,7 +59,7 @@ function TipCalculator({
             name="custom_tip"
             id="custom_tip"
             placeholder="Custom"
-            value={tipValues.tip}
+            value={tipValues.tip === 0 ? "" : tipValues.tip}
             onChange={(e) => onSetTip(Number(e.target.value))}
           />
         </div>
@@ -79,7 +79,7 @@ function TipCalculator({
           />
         </svg>
       </InputComponent>
-    </div>
+    </section>
   );
 }
 

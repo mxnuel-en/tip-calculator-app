@@ -16,7 +16,7 @@ function TipResults({ tipValues, onReset }: ResultsProps) {
       : 0.0;
 
   return (
-    <div className="results_section">
+    <section className="results_section">
       <div>
         <div className="amount_label">
           <div>
@@ -53,7 +53,7 @@ function TipResults({ tipValues, onReset }: ResultsProps) {
       >
         RESET
       </button>
-    </div>
+    </section>
   );
 }
 

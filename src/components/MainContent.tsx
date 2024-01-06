@@ -44,7 +44,7 @@ function MainContent() {
   };
 
   return (
-    <div className="container">
+    <main className="container">
       <TipCalculator
         tipValues={tipValues}
         onSetBill={handleSetBill}
@@ -52,7 +52,7 @@ function MainContent() {
         onSetTip={handleSetTip}
       />
       <TipResults tipValues={tipValues} onReset={handleResetTipVal} />
-    </div>
+    </main>
   );
 }
 

@@ -1,9 +1,11 @@
 function Logo() {
   return (
-    <a href="#" className="logo">
-      <span>SPLI</span>
-      <span>TTER</span>
-    </a>
+    <header>
+      <a href="#" className="logo">
+        <span>SPLI</span>
+        <span>TTER</span>
+      </a>
+    </header>
   );
 }
 
