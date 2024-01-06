@@ -71,23 +71,33 @@ body {
   margin-bottom: 4rem;
 }
 
-label {
+.input__area-label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tip_section label,
+.tip_section p {
   font-size: clamp(1.5rem, 1.4714rem + 0.1429vw, 1.6rem);
 }
 
-.input_area div {
+.input_area .input__area-field {
   position: relative;
   border-radius: 0.5rem;
   height: 6rem;
 }
 
-.input_area div svg {
+.error-message {
+  color: red;
+}
+
+.input_area .input__area-field svg {
   position: absolute;
   top: 50%;
   left: 2rem;
 }
 
-.input_area div input {
+.input_area .input__area-field input {
   background-color: var(--very-light-grayish-cyan);
   border: none;
   border-radius: 0.5rem;
@@ -105,12 +115,12 @@ label {
   caret-color: var(--strong-cyan);
 }
 
-.input_area div input:focus {
+.input_area .input__area-field input:focus {
   border: 0.2rem solid var(--strong-cyan);
 }
 
-.input_area div input::-webkit-inner-spin-button,
-.input_area div input::-webkit-outer-spin-button {
+.input_area .input__area-field input::-webkit-inner-spin-button,
+.input_area .input__area-field input::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }

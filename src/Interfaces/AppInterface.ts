@@ -8,6 +8,8 @@ export interface InputComponentProps {
     label: string;
     children: React.ReactNode;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    errorMessage: string;
+    onBlur: () => void;
     value: number | string;
 }
 

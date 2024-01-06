@@ -1,3 +1,4 @@
+import { useState } from "react";
 import InputComponent from "./InputComponent";
 import { CalculatorProps } from "../Interfaces/AppInterface";
 
@@ -7,10 +8,24 @@ function TipCalculator({
   onSetNumPeople,
   onSetTip,
 }: CalculatorProps) {
+  const [billErrorMessage, setBillErrorMessage] = useState("");
+  const [numPeopleErrorMessage, setNumPeopleErrorMessage] = useState("");
+
   const handleButtonClick = (
     e: React.MouseEvent<HTMLInputElement, MouseEvent>
   ) => {
     onSetTip(Number(e.currentTarget.value.slice(0, -1)));
+  };
+
+  const handleBlur = (
+    inputValue: number,
+    setErrorMessage: React.Dispatch<React.SetStateAction<string>>
+  ) => {
+    if (inputValue === 0 || inputValue < 0 || isNaN(inputValue)) {
+      setErrorMessage("Can't be zero");
+    } else {
+      setErrorMessage("");
+    }
   };
 
   return (
@@ -19,6 +34,8 @@ function TipCalculator({
         label="Bill"
         value={tipValues.billAmount === 0 ? "" : tipValues.billAmount}
         onChange={(e) => onSetBill(Number(e.target.value))}
+        errorMessage={billErrorMessage}
+        onBlur={() => handleBlur(tipValues.billAmount, setBillErrorMessage)}
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="11" height="17">
           <path
@@ -42,7 +59,7 @@ function TipCalculator({
             name="custom_tip"
             id="custom_tip"
             placeholder="Custom"
-            value={tipValues.tip === 0 ? "" : tipValues.tip}
+            value={tipValues.tip}
             onChange={(e) => onSetTip(Number(e.target.value))}
           />
         </div>
@@ -52,6 +69,8 @@ function TipCalculator({
         label="Number of People"
         value={tipValues.numPeople === 0 ? "" : tipValues.numPeople}
         onChange={(e) => onSetNumPeople(Number(e.target.value))}
+        errorMessage={numPeopleErrorMessage}
+        onBlur={() => handleBlur(tipValues.numPeople, setNumPeopleErrorMessage)}
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="16">
           <path

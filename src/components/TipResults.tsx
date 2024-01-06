@@ -2,11 +2,15 @@ import { ResultsProps } from "../Interfaces/AppInterface";
 
 function TipResults({ tipValues, onReset }: ResultsProps) {
   const tipPerPerson =
-    tipValues.numPeople !== 0
-      ? ((tipValues.tip / 100) * tipValues.billAmount) / tipValues.numPeople
+    tipValues.tip !== 0
+      ? tipValues.numPeople !== 0
+        ? ((tipValues.tip / 100) * tipValues.billAmount) / tipValues.numPeople
+        : 0.0
+      : tipValues.numPeople !== 0
+      ? tipValues.billAmount / tipValues.numPeople
       : 0.0;
 
-  const totalPerPerson =
+  const totalBillPerPerson =
     tipPerPerson !== 0
       ? tipValues.billAmount / tipValues.numPeople + tipPerPerson
       : 0.0;
@@ -26,7 +30,7 @@ function TipResults({ tipValues, onReset }: ResultsProps) {
             <h2>Total</h2>
             <p>/ person</p>
           </div>
-          <h1 className="tip_total">${totalPerPerson.toFixed(2)}</h1>
+          <h1 className="tip_total">${totalBillPerPerson.toFixed(2)}</h1>
         </div>
       </div>
 
@@ -44,7 +48,7 @@ function TipResults({ tipValues, onReset }: ResultsProps) {
 
       <button
         type="reset"
-        disabled={!tipPerPerson || !totalPerPerson}
+        disabled={!tipPerPerson || !totalBillPerPerson}
         onClick={onReset}
       >
         RESET
