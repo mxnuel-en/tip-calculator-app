@@ -31,7 +31,8 @@ function TipCalculator({
   return (
     <section className="tip_section">
       <InputComponent
-        label="Bill"
+        label="bill"
+        inputLabel="Bill"
         value={tipValues.billAmount === 0 ? "" : tipValues.billAmount}
         onChange={(e) => onSetBill(Number(e.target.value))}
         errorMessage={billErrorMessage}
@@ -66,7 +67,8 @@ function TipCalculator({
       </div>
 
       <InputComponent
-        label="Number of People"
+        label="numPeople"
+        inputLabel="Number of People"
         value={tipValues.numPeople === 0 ? "" : tipValues.numPeople}
         onChange={(e) => onSetNumPeople(Number(e.target.value))}
         errorMessage={numPeopleErrorMessage}

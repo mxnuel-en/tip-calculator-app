@@ -7,6 +7,7 @@ function InputComponent({
   value,
   errorMessage,
   onBlur,
+  inputLabel,
 }: InputComponentProps) {
   const errorStyle = {
     border: errorMessage ? "0.2rem solid red" : "initial",
@@ -15,7 +16,7 @@ function InputComponent({
   return (
     <div className="input_area">
       <div className="input__area-label">
-        <label htmlFor={label}>{label}</label>
+        <label htmlFor={label}>{inputLabel}</label>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
       </div>
       <div className="input__area-field">

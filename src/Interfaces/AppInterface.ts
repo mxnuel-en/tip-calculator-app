@@ -6,6 +6,7 @@ interface TipValueType {
 
 export interface InputComponentProps {
     label: string;
+    inputLabel: string;
     children: React.ReactNode;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     errorMessage: string;
