@@ -28,13 +28,30 @@ function TipCalculator({
     }
   };
 
+  const handleInputChangeAfterBlurError = (
+    inputValue: number,
+    setErrorMessage: React.Dispatch<React.SetStateAction<string>>
+  ) => {
+    if (inputValue === 0 || inputValue < 0 || isNaN(inputValue)) {
+      setErrorMessage("Can't be zero");
+    } else {
+      setErrorMessage("");
+    }
+  };
+
   return (
     <section className="tip_section">
       <InputComponent
         label="bill"
         inputLabel="Bill"
         value={tipValues.billAmount === 0 ? "" : tipValues.billAmount}
-        onChange={(e) => onSetBill(Number(e.target.value))}
+        onChange={(e) => {
+          onSetBill(Number(e.target.value));
+          handleInputChangeAfterBlurError(
+            Number(e.target.value),
+            setBillErrorMessage
+          );
+        }}
         errorMessage={billErrorMessage}
         onBlur={() => handleBlur(tipValues.billAmount, setBillErrorMessage)}
       >
@@ -70,7 +87,13 @@ function TipCalculator({
         label="numPeople"
         inputLabel="Number of People"
         value={tipValues.numPeople === 0 ? "" : tipValues.numPeople}
-        onChange={(e) => onSetNumPeople(Number(e.target.value))}
+        onChange={(e) => {
+          onSetNumPeople(Number(e.target.value));
+          handleInputChangeAfterBlurError(
+            Number(e.target.value),
+            setNumPeopleErrorMessage
+          );
+        }}
         errorMessage={numPeopleErrorMessage}
         onBlur={() => handleBlur(tipValues.numPeople, setNumPeopleErrorMessage)}
       >
