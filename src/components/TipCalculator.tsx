@@ -28,7 +28,7 @@ function TipCalculator({
     }
   };
 
-  const handleInputChangeAfterBlurError = (
+  const handleBlurValidationError = (
     inputValue: number,
     setErrorMessage: React.Dispatch<React.SetStateAction<string>>
   ) => {
@@ -47,7 +47,7 @@ function TipCalculator({
         value={tipValues.billAmount === 0 ? "" : tipValues.billAmount}
         onChange={(e) => {
           onSetBill(Number(e.target.value));
-          handleInputChangeAfterBlurError(
+          handleBlurValidationError(
             Number(e.target.value),
             setBillErrorMessage
           );
@@ -89,7 +89,7 @@ function TipCalculator({
         value={tipValues.numPeople === 0 ? "" : tipValues.numPeople}
         onChange={(e) => {
           onSetNumPeople(Number(e.target.value));
-          handleInputChangeAfterBlurError(
+          handleBlurValidationError(
             Number(e.target.value),
             setNumPeopleErrorMessage
           );
